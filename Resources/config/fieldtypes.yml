@@ -1,0 +1,16 @@
+parameters:
+# xrowvideo
+    xrow_video_types.xrowvideo.class: xrow\XrowVideoBundle\FieldType\XrowVideo\Type
+    xrow_video_types.xrowvideo.converter.class: xrow\XrowVideoBundle\FieldType\XrowVideo\XrowVideoConverter
+
+services:
+# xrowvideo
+    xrow_video_types.xrowvideo:
+        class: %xrow_video_types.xrowvideo.class%
+        parent: ezpublish.fieldType
+        tags:
+            - {name: ezpublish.fieldType, alias: xrowvideo}
+    xrow_video_types.xrowvideo.converter:
+        class: %xrow_video_types.xrowvideo.converter.class%
+        tags:
+            - {name: ezpublish.storageEngine.legacy.converter, alias: xrowvideo}
